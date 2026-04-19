@@ -78,5 +78,3 @@ This keeps difficult cards recurring sooner while mastered cards get longer inte
 - Sensitive config comes from environment variables
 - Inputs validated for file type/size and score ranges
 - SQLite DB stored server-side (`instance/`)
-### Public GitHub repo
-Push this project folder as its own repository and share the link.

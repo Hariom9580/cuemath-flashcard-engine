@@ -78,25 +78,5 @@ This keeps difficult cards recurring sooner while mastered cards get longer inte
 - Sensitive config comes from environment variables
 - Inputs validated for file type/size and score ranges
 - SQLite DB stored server-side (`instance/`)
-
-## Submission checklist mapping
-### Live URL
-Deploy on Render (or similar) and include the public link.
-
-### 2–5 minute walkthrough video
-Show:
-1. PDF upload and deck generation
-2. Review cycle with scoring
-3. Progress dashboard updates
-4. Search/revisit cards
-5. Key architecture/tradeoff notes
-
-### Write-up points
-Cover:
-- What was built and why Flashcard Engine was chosen
-- Tradeoffs (heuristic generator vs. external LLM dependency)
-- What would be improved next (better NLP quality, OCR PDFs, richer analytics)
-- Challenges solved (PDF variability, card quality balancing, SRS tuning)
-
 ### Public GitHub repo
 Push this project folder as its own repository and share the link.

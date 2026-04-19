@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuemath Flashcard Engine</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>Flashcard Engine</h1>
+      <p>Turn any PDF chapter or class notes into spaced-repetition flashcards in minutes.</p>
+    </header>
+
+    <section class="card">
+      <h2>1) Import PDF</h2>
+      <form id="upload-form">
+        <div class="field">
+          <label for="title">Deck title</label>
+          <input id="title" name="title" type="text" placeholder="Quadratic Equations — Chapter 3">
+        </div>
+        <div class="field">
+          <label for="max_cards">Target card count</label>
+          <input id="max_cards" name="max_cards" type="number" min="5" max="80" value="{{ default_max_cards }}">
+        </div>
+        <div class="field">
+          <label for="pdf">PDF file</label>
+          <input id="pdf" name="pdf" type="file" accept="application/pdf" required>
+        </div>
+        <button type="submit">Generate deck</button>
+      </form>
+      <p class="hint">Tip: Best results come from concept-rich PDFs (chapters, notes, summaries).</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>2) Choose deck</h2>
+        <select id="deck-select">
+          <option value="">Select a deck...</option>
+        </select>
+        <div id="deck-meta" class="deck-meta"></div>
+      </article>
+
+      <article class="card">
+        <h2>Progress</h2>
+        <div id="stats" class="stats muted">Pick a deck to see progress.</div>
+      </article>
+    </section>
+
+    <section class="card review-card">
+      <h2>3) Review due cards</h2>
+      <div id="review-empty" class="muted">Pick a deck to start reviewing.</div>
+      <div id="review-panel" class="hidden">
+        <div class="label">Question</div>
+        <p id="card-question" class="question"></p>
+        <button id="reveal-answer" type="button">Reveal answer</button>
+
+        <div id="answer-block" class="hidden">
+          <div class="label">Answer</div>
+          <p id="card-answer" class="answer"></p>
+          <div class="score-buttons">
+            <button data-score="1" class="score-btn score-low" type="button">Again</button>
+            <button data-score="3" class="score-btn score-mid" type="button">Hard</button>
+            <button data-score="4" class="score-btn score-good" type="button">Good</button>
+            <button data-score="5" class="score-btn score-easy" type="button">Easy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4) Search & revisit cards</h2>
+      <form id="search-form">
+        <input id="search-query" type="text" placeholder="Search concept, term, or phrase...">
+        <button type="submit">Search</button>
+      </form>
+      <ul id="search-results" class="results"></ul>
+    </section>
+
+    <section class="card status-card">
+      <p id="status" class="status muted">Ready.</p>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

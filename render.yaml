@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: cuemath-flashcard-engine
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
